@@ -4,6 +4,12 @@ layout: default
 
 [Link to another page](https://on.soundcloud.com/T1xoapk9aFPLEQst6).
 
+![Cyberspace](cyberspace.png)
+
+
+![Cyberpsacebig?](skele.png)
+
+
 # Don't fight the other inmates, you just end up doing more time.
 
 Silicon Crusts Over My Eyes, as I awake to another wholesome Trans-technical breakfast.
@@ -106,15 +112,6 @@ end
   - level 2 item
   - level 2 item
 - level 1 item
-
-### 
-
-![Cyberspace](cyberspace.png)
-
-### 
-
-![Cyberpsacebig?](skele.png)
-
 
 ### Definition lists can be used with HTML syntax.
 
