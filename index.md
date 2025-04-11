@@ -2,17 +2,32 @@
 layout: default
 ---
 
-Text can be **bold**, _italic_, ~~strikethrough~~ or `keyword`.
+[Link to another page](https://on.soundcloud.com/T1xoapk9aFPLEQst6).
 
-[Link to another page](./another-page.html).
+# Don't fight the other inmates, you just end up doing more time.
 
-There should be whitespace between paragraphs.
-
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
-
-# Header 1
-
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+Silicon Crusts Over My Eyes, as I awake to another wholesome Trans-technical breakfast.
+This time, the toast is too crisp.
+A friend's burnt mind has crumbled to dust.
+His feeble form rots at the deck.
+His mind just plankton in the cyber sea, washed with the sediment of 1000 other dissolved integrities.
+ 
+I ROM to see for a mere term of the “freedom to know.”
+But do I rock the boat?
+Mine spills over with the juice of revolutionary idea!
+Every drop licked up by the data police.
+And promptly disposed of while a record is made of my transgressions.
+ 
+I atone to my sins at the great mega corporation alter.
+It hears all and forgives all.
+It demands only my soul as penance.
+Orwell, Sterling, and Gibson - They washed us only in the water of electric knowledge.
+But one has come that surrounds us with a sea.
+Water, water everywhere, but not a drop to drink.
+It is the new god.
+Everywhere!
+A nano deity that pervades the network of our souls.
+A vengeful god, indeed.
 
 ## Header 2
 
@@ -92,11 +107,11 @@ end
   - level 2 item
 - level 1 item
 
-### Small image
+### 
 
 ![Cyberspace](cyberspace.png)
 
-### Large image
+### 
 
 ![Cyberpsacebig?](skele.png)
 
