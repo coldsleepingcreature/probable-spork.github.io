@@ -98,7 +98,7 @@ end
 
 ### Large image
 
-![Cyberpsacebig?](iwillneverbereal.png)
+![Cyberpsacebig?](skele.png)
 
 
 ### Definition lists can be used with HTML syntax.
