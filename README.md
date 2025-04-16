@@ -1,5 +1,7 @@
 # probable-spork.github.io
 
-The README file for the git pages portfolio for cybersecurity projects
+The README for the gitpages portfolio for cybersecurity projects
+
+This will be updated hopefully in the future!
 
 Thanks for stopping by!
