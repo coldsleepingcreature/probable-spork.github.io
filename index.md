@@ -4,9 +4,38 @@ layout: default
 
 [Link to another page]().
 
-![Cyberspace](cyberspace.png)
+![Cyberspace](Assets/cyberspace.png)
 
-**Portfolio Project Documentation: Azure VM SIEM & SOC Analysis with Microsoft Sentinel**
+
+![Cyberpsacebig?](Assets/skele.png)
+
+
+# Don't fight the other inmates, you just end up doing more time.
+
+Silicon Crusts Over My Eyes, as I awake to another wholesome Trans-technical breakfast.
+This time, the toast is too crisp.
+A friend's burnt mind has crumbled to dust.
+His feeble form rots at the deck.
+His mind just plankton in the cyber sea, washed with the sediment of 1000 other dissolved integrities.
+ 
+I ROM to see for a mere term of the “freedom to know.”
+But do I rock the boat?
+Mine spills over with the juice of revolutionary idea!
+Every drop licked up by the data police.
+And promptly disposed of while a record is made of my transgressions.
+ 
+I atone to my sins at the great mega corporation alter.
+It hears all and forgives all.
+It demands only my soul as penance.
+Orwell, Sterling, and Gibson - They washed us only in the water of electric knowledge.
+But one has come that surrounds us with a sea.
+Water, water everywhere, but not a drop to drink.
+It is the new god.
+Everywhere!
+A nano deity that pervades the network of our souls.
+A vengeful god, indeed.
+
+# Portfolio Project Documentation: Azure VM SIEM & SOC Analysis with Microsoft Sentinel
 
 **Objective:** To create a foundational Security Information and Event Management (SIEM) environment using a free-tier Azure Virtual Machine (VM) and Microsoft Sentinel. This setup will collect security logs from the VM, integrate Threat Intelligence (TI) feeds, and implement detection rules to identify and alert on activities involving foreign or known suspicious IP addresses.
 
@@ -26,9 +55,9 @@ layout: default
     Microsoft Sentinel: Offers a free trial period (typically the first 31 days, check current Azure offers). During the trial, both Sentinel and Log Analytics ingestion might be free up to a certain limit (e.g., 10GB/day). After the trial, Sentinel has its own pricing based on ingested data in addition to the Log Analytics costs. Crucially: Ingesting VM logs (like Security Events or Syslog) into the Log Analytics Workspace will count towards your 5GB free limit even after the Sentinel trial ends. Exceeding this limit will incur costs.
     Conclusion: This environment can be run with minimal to no cost during initial trial periods and the first 12 months if log volume is kept strictly below the 5GB/month Log Analytics free tier. Be vigilant about monitoring data ingestion to avoid unexpected charges.
 
-**Step-by-Step Implementation:**
+# Step-by-Step Implementation:
 
-Step 1: Create a Log Analytics Workspace
+**Step 1: Create a Log Analytics Workspace**
 
     Log in to the Azure portal (https://portal.azure.com).
     Search for "Log Analytics workspaces" and click "Create".
@@ -38,14 +67,14 @@ Step 1: Create a Log Analytics Workspace
     Review the pricing tier (the free tier will apply automatically up to the limit).
     Click "Review + Create", then "Create".
 
-Step 2: Enable Microsoft Sentinel
+**Step 2: Enable Microsoft Sentinel**
 
     Once the Log Analytics Workspace is deployed, search for "Microsoft Sentinel" in the Azure portal.
     Click "Create Microsoft Sentinel".
     Select the Log Analytics Workspace you created in Step 1 (e.g., law-sentinel-portfolio) and click "Add".
     Wait for Sentinel to be enabled on the workspace. This may take a few minutes.
 
-Step 3: Create an Azure Virtual Machine (Free Tier)
+**Step 3: Create an Azure Virtual Machine (Free Tier)**
 
     In the Azure portal, search for "Virtual machines" and click "Create" -> "Azure virtual machine".
     Select your Subscription and Resource Group (use the same one, rg-sentinel-portfolio).
@@ -63,7 +92,7 @@ Step 3: Create an Azure Virtual Machine (Free Tier)
     Proceed through the "Disks", "Networking" (ensure it's creating a new VNet/Subnet/Public IP/NSG or using existing ones in your resource group), "Management", "Monitoring", and "Advanced" tabs. Default settings are generally okay for this basic setup, but ensure Monitoring (specifically Boot diagnostics) is enabled.
     Click "Review + Create", then "Create".
 
-Step 4: Connect the VM to Microsoft Sentinel
+**Step 4: Connect the VM to Microsoft Sentinel**
 
     Navigate back to your Microsoft Sentinel instance.
     Under "Configuration", click on Data connectors.
@@ -87,7 +116,7 @@ Step 4: Connect the VM to Microsoft Sentinel
     Agent Installation: The Data Collection Rule deployment will automatically try to install the Azure Monitor Agent (AMA) on the selected VM if it's not already there. Monitor the deployment process. It might take 5-15 minutes for the agent to install and start sending logs.
     Verify Connection: On the connector page in Sentinel, you should eventually see the data graph start showing activity after logs begin flowing. You can also query the data directly in Logs (see Step 8).
 
-Step 5: Configure Threat Intelligence Connectors in Sentinel
+**Step 5: Configure Threat Intelligence Connectors in Sentinel**
 
     In Microsoft Sentinel, navigate to Data connectors.
     Search for "Threat Intelligence".
@@ -97,7 +126,7 @@ Step 5: Configure Threat Intelligence Connectors in Sentinel
         Threat Intelligence - TAXII: If you have access to a specific free TAXII feed (like Abuse.ch or AlienVault OTX), you can configure it here, but it's not strictly necessary for the basic goal using Microsoft's TI.
     Once connected, TI data will start populating the ThreatIntelligenceIndicator table in your Log Analytics Workspace, which Sentinel uses for correlation.
 
-Step 6: Create Analytics Rules for Suspicious IPs
+**Step 6: Create Analytics Rules for Suspicious IPs**
 
     In Microsoft Sentinel, navigate to Analytics under "Configuration".
 
@@ -128,7 +157,7 @@ SecurityEvent
 
     (Note: If using Linux, you'd query the Syslog table instead, parsing the IP address and joining similarly. Example below - adjust field names based on your Linux logs): <!-- end list -->
 
-Code snippet
+# Code snippet
 
     // For Linux Syslog (adjust based on actual log format)
     let lookback = 1h;
@@ -154,7 +183,7 @@ Code snippet
     Automated Response: (Optional/Advanced) You could trigger Logic Apps later.
     Review and Create.
 
-Rule 2: Login from Unexpected Foreign Country
+**Rule 2: Login from Unexpected Foreign Country**
 
     Name: [Portfolio] Sign-in from Unexpected Country
     Tactics & Techniques: Initial Access.
@@ -183,13 +212,13 @@ Rule 2: Login from Unexpected Foreign Country
         Incident Settings: Enabled.
         Review and Create.
 
-Step 7: Simulate Traffic (Carefully!)
+**Step 7: Simulate Traffic (Carefully!)**
 
     Connect to your VM: Use RDP (Windows) or SSH (Linux) from your normal IP address first to generate some baseline logs.
     Simulate "Foreign" Login: If you have access to a VPN service, connect through a server in a country not listed in your known_good_countries list (Rule 2) and then try to log into your Azure VM via RDP/SSH. A successful login should trigger Rule 2.
     Simulate "Suspicious" Login (Use Caution): Find a known, publicly listed suspicious IP address (e.g., from a public TOR exit node list or a feed like Abuse.ch). Do not use highly malicious IPs you are unsure about. If using a VPN or proxy service allows you to route traffic through such an IP, attempt an RDP/SSH connection (it will likely fail, but the attempt might be logged depending on firewall/NSG settings, or a successful login will trigger Rule 1). This carries risk; ensure you understand what you are doing and have controls in place (like the NSG). Alternatively, you can manually add a test IP address to the ThreatIntelligenceIndicator table via Log Analytics query or API for safe testing.
 
-Step 8: Monitor and Analyze in Sentinel
+**Step 8: Monitor and Analyze in Sentinel**
 
     Incidents: Go to the Incidents blade in Sentinel. As your analytics rules detect matching activity, incidents will be generated here. Click on an incident to investigate.
         See the Alerts involved.
@@ -204,9 +233,9 @@ Step 8: Monitor and Analyze in Sentinel
     Threat Intelligence: Explore the Threat Intelligence blade to view ingested indicators, search for specific IPs/domains, and manage TI connectors.
     Workbooks: Use pre-built workbooks (like "Threat Intelligence") or create your own to visualize data (e.g., map of login locations, list of TI hits).
 
-**How Does It All Work?**
+# How Does It All Work?
 
-1. How Data Flows from the VM to Sentinel
+**1. How Data Flows from the VM to Sentinel**
 
 The flow of log data from your Azure VM into Microsoft Sentinel involves several key components working together:
 
@@ -228,7 +257,7 @@ The flow of log data from your Azure VM into Microsoft Sentinel involves several
 
 In short: OS generates logs -> AMA reads specific logs (instructed by DCR) -> AMA sends logs to Log Analytics Workspace -> Sentinel uses data within Log Analytics Workspace for analysis and alerting.
 
-2. The Purpose of Threat Intelligence Feeds
+**2. The Purpose of Threat Intelligence Feeds**
 
 Threat Intelligence (TI) feeds are crucial in cybersecurity because they provide essential context about potential threats observed in the wider digital world. In the context of Sentinel:
 
@@ -245,7 +274,7 @@ Threat Intelligence (TI) feeds are crucial in cybersecurity because they provide
 
 In essence: TI feeds allow Sentinel to recognize when an activity within your environment involves an entity (like an IP address) that is already known to be associated with malicious actors or infrastructure globally.
 
-3. The Logic Behind Your Custom Analytics Rules (KQL Explanation)
+**3. The Logic Behind Your Custom Analytics Rules (KQL Explanation)**
 
 Let's break down the Kusto Query Language (KQL) for the two rules:
 
@@ -290,7 +319,7 @@ SecurityEvent // 3. Start with Windows Security Event logs.
 
 Logic Summary: This rule looks for recent successful logins from external IPs. It uses Azure's built-in capabilities to determine the geographical location (country) of the source IP address. If the determined country is not on your pre-approved list (known_good_countries), it generates an alert, flagging it as a potentially suspicious login from an unexpected location.
 
-4. How You Would Investigate an Incident Generated by These Rules
+**4. How You Would Investigate an Incident Generated by These Rules**
 
 When an incident pops up in the Sentinel Incidents queue triggered by one of these rules, a structured investigation process is key:
 
@@ -329,7 +358,7 @@ When an incident pops up in the Sentinel Incidents queue triggered by one of the
             Recovery: Restore the VM from backup if necessary; reset passwords.
             Lessons Learned: Adjust firewall rules, improve password policies, tune the Sentinel Analytics Rule (e.g., add the country to the known_good_countries list if it was a false positive due to travel).
 
-5. The Limitations
+**5. The Limitations**
 
 This setup, while valuable for learning and portfolio demonstration, has significant limitations compared to a production SOC environment:
 
@@ -345,33 +374,6 @@ This setup, while valuable for learning and portfolio demonstration, has signifi
     Security Posture: Exposing RDP/SSH directly to the internet for the VM, even for testing, is inherently risky. Secure alternatives like Azure Bastion (jump host service) or Just-In-Time (JIT) VM access should be used in practice.
     No Network-Level Visibility: You are missing network traffic analysis (e.g., from NSG Flow Logs, Azure Firewall logs, or dedicated Network Detection and Response tools) which provides critical context about connections attempts, data flows, and lateral movement.
 
-![Cyberpsacebig?](skele.png)
-
-
-# Don't fight the other inmates, you just end up doing more time.
-
-Silicon Crusts Over My Eyes, as I awake to another wholesome Trans-technical breakfast.
-This time, the toast is too crisp.
-A friend's burnt mind has crumbled to dust.
-His feeble form rots at the deck.
-His mind just plankton in the cyber sea, washed with the sediment of 1000 other dissolved integrities.
- 
-I ROM to see for a mere term of the “freedom to know.”
-But do I rock the boat?
-Mine spills over with the juice of revolutionary idea!
-Every drop licked up by the data police.
-And promptly disposed of while a record is made of my transgressions.
- 
-I atone to my sins at the great mega corporation alter.
-It hears all and forgives all.
-It demands only my soul as penance.
-Orwell, Sterling, and Gibson - They washed us only in the water of electric knowledge.
-But one has come that surrounds us with a sea.
-Water, water everywhere, but not a drop to drink.
-It is the new god.
-Everywhere!
-A nano deity that pervades the network of our souls.
-A vengeful god, indeed.
 
 ```js
 // Javascript code with syntax highlighting.
